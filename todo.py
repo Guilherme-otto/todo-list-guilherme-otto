@@ -81,30 +81,6 @@ def editar_tarefa(tarefas):
     except ValueError:
         print("\n❌ Entrada inválida. Digite um número válido.")
 
-    if not tarefas:
-        print("\n⚠️ Nenhuma tarefa para editar.")
-        return
-
-    print("\n--- Editar Tarefa ---")
-    for i, tarefa in enumerate(tarefas):
-        print(f"{i + 1}. {tarefa['descricao']} (Prioridade: {tarefa.get('prioridade', 'Baixa')})")
-
-    try:
-        indice = int(input("Digite o número da tarefa que deseja editar: "))
-        if 1 <= indice <= len(tarefas):
-            tarefa = tarefas[indice - 1]
-            print(f"\nDescrição atual: {tarefa['descricao']}")
-            nova_descricao = input("Digite a nova descrição (ou ENTER para cancelar): ").strip()
-            if nova_descricao == "":
-                print("Edição cancelada.")
-            else:
-                tarefa['descricao'] = nova_descricao
-                print(f"\n✅ Descrição da tarefa atualizada com sucesso!")
-        else:
-            print("\n❌ Número inválido.")
-    except ValueError:
-        print("\n❌ Entrada inválida. Digite um número válido.")
-
 def exibir_menu():
     """Exibe o menu de opções para o usuário."""
     print("\n--- MENU ---")
