@@ -70,18 +70,16 @@ def editar_tarefa(tarefas):
         if 1 <= indice <= len(tarefas):
             tarefa = tarefas[indice - 1]
             print(f"\nDescrição atual: {tarefa['descricao']}")
-            nova_descricao = input("Digite a nova descrição (ou ENTER para cancelar): ")
-            if nova_descricao.strip() == "":
+            nova_descricao = input("Digite a nova descrição (ou ENTER para cancelar): ").strip()
+            if nova_descricao == "":
                 print("Edição cancelada.")
             else:
-                # Aqui só mostramos a nova descrição, mas ainda não alteramos (feito na próxima branch)
-                print(f"Nova descrição digitada: {nova_descricao}")
-                print("Funcionalidade de alteração será implementada em breve.")
+                tarefa['descricao'] = nova_descricao
+                print(f"\n✅ Descrição da tarefa atualizada com sucesso!")
         else:
             print("\n❌ Número inválido.")
     except ValueError:
         print("\n❌ Entrada inválida. Digite um número válido.")
-
 
 def exibir_menu():
     """Exibe o menu de opções para o usuário."""
