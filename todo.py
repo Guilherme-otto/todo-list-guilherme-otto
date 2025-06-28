@@ -23,42 +23,6 @@ def adicionar_tarefa(tarefas, descricao):
     else:
         print("\n❌ A descrição da tarefa não pode ser vazia.")
 
-    """
-    Adiciona uma nova tarefa à lista.
-    Uma tarefa é um dicionário com 'descricao', 'concluida' e 'prioridade'.
-    """
-    if descricao:
-        prioridade = input("Digite a prioridade da tarefa (Alta, Média ou Baixa): ").capitalize()
-
-        if prioridade not in ["Alta", "Média", "Baixa"]:
-            print("⚠️ Prioridade inválida. Definido como 'Baixa'.")
-            prioridade = "Baixa"
-
-        nova_tarefa = {
-            "descricao": descricao,
-            "concluida": False,
-            "prioridade": prioridade
-        }
-        tarefas.append(nova_tarefa)
-        print(f"\n✅ Tarefa '{descricao}' com prioridade '{prioridade}' adicionada com sucesso!")
-    else:
-        print("\n❌ A descrição da tarefa não pode ser vazia.")
-
-    """
-    Adiciona uma nova tarefa à lista.
-    Uma tarefa é um dicionário com 'descricao', 'concluida' e 'prioridade'.
-    """
-    if descricao:
-        nova_tarefa = {
-            "descricao": descricao,
-            "concluida": False,
-            "prioridade": "Baixa"
-        }
-        tarefas.append(nova_tarefa)
-        print(f"\n✅ Tarefa '{descricao}' adicionada com sucesso!")
-    else:
-        print("\n❌ A descrição da tarefa não pode ser vazia.")
-
 def listar_tarefas(tarefas):
     """Lista todas as tarefas, mostrando o status, descrição e prioridade."""
     print("\n--- Sua Lista de Tarefas ---")
@@ -99,6 +63,7 @@ def exibir_menu():
     print("2. Listar Tarefas")
     print("3. Marcar Tarefa como Concluída")
     print("4. Remover Tarefa")
+    print("5. Editar Tarefa")
     print("0. Sair")
 
 def main():
@@ -128,6 +93,8 @@ def main():
                 remover_tarefa(lista_de_tarefas, indice)
             except ValueError:
                 print("\n❌ Entrada inválida. Por favor, digite um número.")
+        elif escolha == '5':
+            print("\n🔧 Funcionalidade de edição de tarefa ainda em desenvolvimento.")
         elif escolha == '0':
             print("\nObrigado por usar o Gerenciador de Tarefas. Até mais!")
             break
