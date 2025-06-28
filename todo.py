@@ -1,10 +1,14 @@
 def adicionar_tarefa(tarefas, descricao):
     """
     Adiciona uma nova tarefa à lista.
-    Uma tarefa é um dicionário com 'descricao' e 'concluida'.
+    Uma tarefa é um dicionário com 'descricao', 'concluida' e 'prioridade'.
     """
-    if descricao:  # Garante que a descrição não está vazia
-        nova_tarefa = {"descricao": descricao, "concluida": False}
+    if descricao:
+        nova_tarefa = {
+            "descricao": descricao,
+            "concluida": False,
+            "prioridade": "Baixa"
+        }
         tarefas.append(nova_tarefa)
         print(f"\n✅ Tarefa '{descricao}' adicionada com sucesso!")
     else:
@@ -18,13 +22,11 @@ def listar_tarefas(tarefas):
     else:
         for i, tarefa in enumerate(tarefas):
             status = "✅" if tarefa["concluida"] else "◻️"
-            # O 'i + 1' é para mostrar um índice amigável ao usuário (começando em 1)
             print(f"{i + 1}. {status} {tarefa['descricao']}")
     print("--------------------------")
 
 def marcar_como_concluida(tarefas, indice):
     """Marca uma tarefa como concluída com base no seu índice na lista."""
-    # O índice do usuário começa em 1, mas o da lista em 0
     indice_real = indice - 1
     if 0 <= indice_real < len(tarefas):
         if tarefas[indice_real]["concluida"]:
@@ -55,8 +57,6 @@ def exibir_menu():
 
 def main():
     """Função principal que executa o loop do programa."""
-    # A lista de tarefas (nosso vetor) é criada vazia aqui.
-    # Ela existirá apenas enquanto o programa estiver em execução.
     lista_de_tarefas = []
 
     while True:
@@ -88,6 +88,5 @@ def main():
         else:
             print("\n❌ Opção inválida. Por favor, tente novamente.")
 
-# Garante que a função main() só será executada quando o script for rodado diretamente
 if __name__ == "__main__":
     main()
